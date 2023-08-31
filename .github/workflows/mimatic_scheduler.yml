@@ -23,7 +23,7 @@ jobs:
           pip install -r requirements.txt  # Assuming your requirements are in this file
 
       - name: Run script
-        run: python main.py
+        run: python main_cron.py
 
       - name: Check runs and schedule next day
         run: |
@@ -32,5 +32,5 @@ jobs:
             echo "Scheduled runs completed for today"
           else
             echo "Scheduling for next day"
-            curl -X POST -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/${{ github.repository }}/actions/workflows/${{ github.workflow }}/dispatches -d '{"ref":"main"}'
+            curl -X POST -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/${{ github.repository }}/actions/workflows/${{ github.workflow }}/dispatches -d '{"ref":"main_cron"}'
           fi
