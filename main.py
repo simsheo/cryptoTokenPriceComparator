@@ -1,4 +1,5 @@
 from tabulate import tabulate
+from apscheduler.schedulers.blocking import BlockingScheduler
 from config import (
     COINGECO_POLYGON_URL, COINGECKO_FANTOM_URL, COINMARKETCAP_MIMATIC_URL,
     DIA_POLYGON_URL, DIA_FANTOM_URL, SLACK_URL, POLYGON_ADDR, FANTOM_ADDR,GRAPHQL_URL
@@ -7,10 +8,6 @@ from api.price_scraper import fetch_coinmarketcap_price
 from api.graphql import fetch_graphql_price
 from api import fetch_coingecko_price, fetch_dia_price
 from utils import price_threshold_breached, price_variation, send_email, send_slack_notification,generate_price_html_report,generate_breach_html_report
-
-
-
-
 
 def main():
     THRESHOLD = 10
@@ -89,6 +86,8 @@ def compare_and_highlight_breach(source_price, external_price,threshold, compart
   
 
 if __name__ == "__main__":
-    main()
+    scheduler = BlockingScheduler()
+    scheduler.add_job(main, 'interval', minutes=30)  # Schedule the function every 30 minutes
+    scheduler.start()
   
 
