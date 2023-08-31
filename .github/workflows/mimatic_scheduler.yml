@@ -2,7 +2,7 @@ name: periodical cron job
 
 on:
   schedule:
-    - cron: '50,20 23-23 * * *'  # Runs at 23:50 and then every 30 minutes
+    - cron: '30 18,23 * * *'  # Runs at midnight IST and every 5 minutes thereafter
 
 jobs:
   run_script:
