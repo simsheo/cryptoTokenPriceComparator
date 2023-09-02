@@ -16,6 +16,7 @@ jobs:
         run: |
           echo "SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}"
           echo "GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}"
+          echo "Current timezone: $TZ"
       
       - name: Check Repository
         run: |
@@ -36,6 +37,7 @@ jobs:
         run: python main_cron.py
         env:
           SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+          TZ: 'Asia/Kolkata'
 
       - name: Check runs and schedule next day
         run: |
