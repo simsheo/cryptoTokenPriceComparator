@@ -2,7 +2,7 @@ name: mimatic monitoring and alerting job
 
 on:
   schedule:
-    - cron: '09 10 * * *'
+    - cron: '04 10 * * *'
 
 jobs:
   run_script:
