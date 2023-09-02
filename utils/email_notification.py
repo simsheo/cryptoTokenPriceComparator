@@ -3,13 +3,16 @@ from html import escape
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
+# This could all be stored as secret like SLACK_TOKEN
+FROM_ADDR = "simsheotest@gmail.com"
+TO_ADDR = "sihagseema@yahoo.com"
+PASSWORD = "zipltorcaxlskltk"
+
+#Send email with given subject and message
 def send_email(subject, message):
-    fromaddr ="simsheotest@gmail.com"
-    toaddr = "sihagseema@yahoo.com"
-    
     msg = MIMEText(message, 'html')
-    msg['From'] = fromaddr
-    msg['To'] = toaddr    
+    msg['From'] = FROM_ADDR
+    msg['To'] = TO_ADDR    
     msg['Subject'] = subject
         
     # Create an SMTP instance
@@ -21,12 +24,13 @@ def send_email(subject, message):
     # Start TLS (Transport Layer Security) encryption
     server.starttls()
 
-    # Login to your Gmail account
-    server.login(fromaddr, "zipltorcaxlskltk")
+    # Login to your Gmail account, this could also be stored as secret like SLACK_TOKEN
+    server.login(FROM_ADDR,PASSWORD )
   
-    server.sendmail(fromaddr, toaddr, msg.as_string())
+    server.sendmail(FROM_ADDR, TO_ADDR, msg.as_string())
     server.quit()
 
+#Generate html  for price report
 def generate_breach_html_report(source_price_list, subject):
     rows = ""
     for comp, src_price, ext_price, diff, threshold in source_price_list:
@@ -61,7 +65,8 @@ def generate_breach_html_report(source_price_list, subject):
     </body>
     </html>
     """ 
-    
+
+#Generate html for thresold breach report
 def generate_price_html_report(source_price_list, subject):
     rows = ""
     for source, price in source_price_list:
