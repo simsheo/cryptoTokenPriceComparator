@@ -1,5 +1,6 @@
 import requests
 import json
+import logging
 
 def fetch_graphql_price(url ):
     query = """
@@ -47,11 +48,11 @@ def fetch_graphql_price(url ):
             # Extract the latest price and timestamp
             latest_price = latest_entry["Value"]
             latest_timestamp = latest_entry["Time"]
-            print(f"latest price : {latest_price}, latest time stamp: {latest_timestamp}")
+            logging.info(f"latest price : {latest_price}, latest time stamp: {latest_timestamp}")
             return latest_price
         else:
             return None
     else:
-        print("Request failed with status code:", response.status_code)
+        logging.error("Request failed with status code:", response.status_code)
         return None 
     
