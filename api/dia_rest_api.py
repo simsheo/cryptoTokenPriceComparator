@@ -3,6 +3,7 @@ import requests
 
 # Function to fetch price data from a given endpoint
 def fetch_dia_price(api_endpoint):
+    logging.info(f"dia_rest_api:fetch_dia_price-->API: {api_endpoint}")
     response = requests.get(api_endpoint)
     if response.status_code == 200:
         data = response.json()
