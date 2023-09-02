@@ -1,11 +1,11 @@
 import requests
-from decouple import config
+import os
 
 def send_slack_notification(slack_url, message, subject,blocks = None):
     # Slack channel or user ID where you want to send the message
     channel = "price_monitoring" # Change this to the appropriate channel or user ID
     # Retrieve the token from the .env file
-    slack_token = config('SLACK_TOKEN', default='')
+    slack_token = os.environ.get('SLACK_TOKEN_SECRET')
 
     if slack_token:
     # Use the token for your application
