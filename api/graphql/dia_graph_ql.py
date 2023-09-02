@@ -2,6 +2,7 @@ import requests
 import json
 import logging
 
+#function to fetch price using graphql
 def fetch_graphql_price(url ):
     query = """
     {
@@ -53,6 +54,6 @@ def fetch_graphql_price(url ):
         else:
             return None
     else:
-        logging.error("Request failed with status code:", response.status_code)
+        logging.error("dia_graph_ql:fetch_graphql_price-->Request failed with status code:", response.status_code)
         return None 
     
