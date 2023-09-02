@@ -15,7 +15,6 @@ jobs:
       - name: Print Environment Variables
         run: |
           echo "SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}"
-          echo "GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}"
           echo "Current timezone: $TZ"
       
       - name: Check Repository
