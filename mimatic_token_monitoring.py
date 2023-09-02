@@ -88,6 +88,10 @@ def main():
                 threshold_breach_table = tabulate(thresold_breach_list, headers=["Comparator", "DIA Price", "External Price", "Deviation in %", "Threshold"], tablefmt="orgtbl")
                 breach_table = {"text":"```\n" + threshold_breach_table + "\n```"}
                 send_slack_notification(SLACK_URL, breach_table['text'], breach_report_subject)
+            else:
+                logging.info("No breach detetcted , threshold report is empty")
+    else:
+        logging.error("Error fetching data from some or all sources.")
 
 def compare_and_highlight_breach(source_price, external_price,threshold, compartaor,thresold_breach_list):
     if source_price and external_price:
