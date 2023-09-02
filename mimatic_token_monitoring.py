@@ -51,8 +51,10 @@ def main():
             #Send mail and slack notifications for price fetched
 
             #create test reports in test_results subdirectory
+            print("Current working directory:", os.getcwd())
             report_directory = 'test_results'
             os.makedirs(report_directory, exist_ok=True)
+            print("report_directory directory:", report_directory)
             
             price_subject = f'DIA and external Prices for -{token}'
             #generate html report for all prices , save it and send it via mail
