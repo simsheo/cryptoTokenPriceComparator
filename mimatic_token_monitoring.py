@@ -1,3 +1,4 @@
+import os
 from tabulate import tabulate
 from config import (
     COINGECO_POLYGON_URL, COINGECKO_FANTOM_URL, COINMARKETCAP_MIMATIC_URL,
@@ -47,11 +48,15 @@ def main():
             ]  
             
             #Send mail and slack notifications for price fetched
+
+            #create test reports in test_results subdirectory
+            report_directory = 'test_results'
+            os.makedirs(report_directory, exist_ok=True)
             
             price_subject = f'DIA and external Prices for -{token}'
             #generate html report for all prices , save it and send it via mail
             html_report = generate_price_html_report(source_price_list, price_subject)
-            with open('source_price_report.html', 'w') as file:
+            with open(os.path.join(report_directory, 'source_price_report.html'), 'w') as file:
                 file.write(html_report)
             send_email(price_subject, html_report)
             
@@ -72,7 +77,7 @@ def main():
                 #generate html report for all prices , save it and send it via mail
                 breach_report_subject = f"Threshold breach Report for {token}"
                 html_report = generate_breach_html_report(thresold_breach_list, breach_report_subject)
-                with open('thresold_breach_report.html', 'w') as file:
+                with open(os.path.join(report_directory,'thresold_breach_report.html'), 'w') as file:
                     file.write(html_report)
                 send_email(breach_report_subject, html_report)
             
