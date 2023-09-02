@@ -30,7 +30,7 @@ def send_email(subject, message):
     server.sendmail(FROM_ADDR, TO_ADDR, msg.as_string())
     server.quit()
 
-#Generate html  for price report
+#Generate html  for thresold breach report
 def generate_breach_html_report(source_price_list, subject):
     rows = ""
     for comp, src_price, ext_price, diff, threshold in source_price_list:
@@ -66,7 +66,7 @@ def generate_breach_html_report(source_price_list, subject):
     </html>
     """ 
 
-#Generate html for thresold breach report
+#Generate html for price report
 def generate_price_html_report(source_price_list, subject):
     rows = ""
     for source, price in source_price_list:
