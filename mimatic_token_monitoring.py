@@ -11,27 +11,32 @@ from utils import price_threshold_breached, price_variation, send_email, send_sl
 def main():
     THRESHOLD = 10
     token = "Mimatic"
-    
+
+    #Get all dia data and external source data which we need to compare
     dia_polygon_data = fetch_dia_price(DIA_POLYGON_URL)
     dia_fantom_data = fetch_dia_price(DIA_FANTOM_URL)
     coingecko_polygon_data = fetch_coingecko_price(COINGECO_POLYGON_URL, 'polygon', POLYGON_ADDR)
     coingecko_fantom_data = fetch_coingecko_price(COINGECKO_FANTOM_URL, 'fantom', FANTOM_ADDR)
-    
+
+    #Check for nulls and empty data
     if dia_polygon_data and dia_fantom_data and coingecko_polygon_data and  coingecko_fantom_data:      
-    #Get all the prices from DIA and all external sources
+       
+        #Get all the prices from DIA and all external sources - Using API
         dia_polygon_price = fetch_dia_price(DIA_POLYGON_URL)['Price']
         dia_fantom_price = fetch_dia_price(DIA_FANTOM_URL)['Price']
         coingecko_polygon_price = fetch_coingecko_price(COINGECO_POLYGON_URL, 'polygon', POLYGON_ADDR)[0]['current_price']
         coingecko_fantom_price = fetch_coingecko_price(COINGECKO_FANTOM_URL, 'fantom', FANTOM_ADDR)[FANTOM_ADDR]['usd']
         
-        #Get price using scraper
+        #Get price Using scraper , wanted to include various ways in which we can read data( API, Scraper, graphql etc)
         coinmarketcap_mimatic_price = fetch_coinmarketcap_price(COINMARKETCAP_MIMATIC_URL)
         
         #Get price using graphql , this is only for demo purpose    
         dia_polygon_graphql_price = fetch_graphql_price(GRAPHQL_URL)
+
         
         if dia_polygon_price and dia_fantom_price and coingecko_polygon_price and coingecko_fantom_price and coinmarketcap_mimatic_price and dia_polygon_graphql_price:
-        
+
+            #Create list for all prices pulled and used in comparision and send it to email and slack
             source_price_list =[
                 ("Dia Polygon - API ", dia_polygon_price ), 
                 ("Dia Polygon - GRAPHQL ", dia_polygon_graphql_price ), 
@@ -42,6 +47,7 @@ def main():
             ]  
             
             #Send mail and slack notifications for price fetched
+            
             price_subject = f'DIA and external Prices for -{token}'
             #generate html report for all prices , save it and send it via mail
             html_report = generate_price_html_report(source_price_list, price_subject)
@@ -55,10 +61,11 @@ def main():
             send_slack_notification(SLACK_URL, slack_table['text'], price_subject)
             
             thresold_breach_list =[];
-            #Check for validation breach by comparing to decided threshold
-            compare_and_highlight_breach(dia_polygon_price, coingecko_polygon_price, THRESHOLD,"dia_vs_coingecko_polygon", thresold_breach_list )
-            compare_and_highlight_breach(dia_fantom_price, coingecko_fantom_price, 60,"dia_vs_coingecko_fantom", thresold_breach_list )
-            compare_and_highlight_breach(dia_fantom_price, coinmarketcap_mimatic_price, THRESHOLD,"dia_vs_coinmarketcap_fantom_aggregated", thresold_breach_list )
+            #Check for validation breach by comparing to decided threshold, each price can have its own threshold set, 
+            #code is not inconsistent here , i want to demo with various thresholds
+            compare_and_highlight_breach(dia_polygon_price, coingecko_polygon_price, 10,"dia_vs_coingecko_polygon", thresold_breach_list )
+            compare_and_highlight_breach(dia_fantom_price, coingecko_fantom_price, 5,"dia_vs_coingecko_fantom", thresold_breach_list )
+            compare_and_highlight_breach(dia_fantom_price, coinmarketcap_mimatic_price, 70,"dia_vs_coinmarketcap_fantom_aggregated", thresold_breach_list )
             compare_and_highlight_breach(dia_polygon_price, coinmarketcap_mimatic_price, THRESHOLD,"dia_vs_coingecko_polygon_aggregated", thresold_breach_list )
                 
             if thresold_breach_list:
