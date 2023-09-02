@@ -1,6 +1,6 @@
 import logging
 
-# Function to validate price between two sources based on predefined threshold 
+# Function to find percentage variation between price from two sources 
 def price_variation(dia_price, external_source_price ):
     diff_percentage =  abs(external_source_price - dia_price) / dia_price * 100
     logging.info(f"The percentage variation between two sources for price is: {diff_percentage}")
