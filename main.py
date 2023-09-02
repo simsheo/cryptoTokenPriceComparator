@@ -43,7 +43,7 @@ def main():
             ]  
             
             #Send mail and slack notifications for price fetched
-            price_subject = f'DIA and external Prices for -{token}'
+            price_subject = f'App Scheduler DIA and external Prices for -{token}'
             #generate html report for all prices , save it and send it via mail
             html_report = generate_price_html_report(source_price_list, price_subject)
             with open('source_price_report.html', 'w') as file:
@@ -64,7 +64,7 @@ def main():
                 
             if thresold_breach_list:
                 #generate html report for all prices , save it and send it via mail
-                breach_report_subject = f"Threshold breach Report for {token}"
+                breach_report_subject = f"App Scheduler Threshold breach Report for {token}"
                 html_report = generate_breach_html_report(thresold_breach_list, breach_report_subject)
                 with open('thresold_breach_report.html', 'w') as file:
                     file.write(html_report)
