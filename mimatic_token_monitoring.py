@@ -10,6 +10,8 @@ from api.graphql import fetch_graphql_price
 from api import fetch_coingecko_price, fetch_dia_price
 from utils import price_threshold_breached, price_variation, send_email, send_slack_notification,generate_price_html_report,generate_breach_html_report
 
+logging.basicConfig(level=logging.INFO)
+
 def main():
     THRESHOLD = 10
     token = "Mimatic"
