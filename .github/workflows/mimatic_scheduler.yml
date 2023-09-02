@@ -1,8 +1,8 @@
-name: periodical cron job
+name: Monitoring job
 
 on:
   schedule:
-    - cron: '0-59/5 00-13 * * *'  # Runs at midnight IST and every 5 minutes thereafter
+    - cron: '0-59/5 09-13 * * *'  # Runs at midnight IST and every 5 minutes thereafter
 
 jobs:
   run_script:
@@ -15,6 +15,12 @@ jobs:
       - name: Print Environment Variables
         run: |
           echo "SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}"
+          echo "GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}"
+      
+      - name: Check Repository
+        run: |
+          echo "Current repository: ${{ github.repository }}"
+          echo "GitHub workflow: ${{ github.workflow }}"
 
       - name: Set up Python
         uses: actions/setup-python@v2
@@ -38,5 +44,6 @@ jobs:
             echo "Scheduled runs completed for today"
           else
             echo "Scheduling for next day"
+            
             curl -X POST -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/${{ github.repository }}/actions/workflows/${{ github.workflow }}/dispatches -d '{"ref":"main"}'
           fi
