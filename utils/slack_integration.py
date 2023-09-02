@@ -5,7 +5,7 @@ def send_slack_notification(slack_url, message, subject,blocks = None):
     # Slack channel or user ID where you want to send the message
     channel = "price_monitoring" # Change this to the appropriate channel or user ID
     # Retrieve the token from the .env file
-    slack_token = os.environ.get('SLACK_TOKEN_SECRET')
+    slack_token = os.environ.get('SLACK_TOKEN')
 
     if slack_token:
     # Use the token for your application
