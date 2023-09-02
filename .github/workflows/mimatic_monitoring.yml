@@ -15,6 +15,7 @@ jobs:
       - name: Print Environment Variables
         run: |
           echo "SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}"
+          echo "Current timezone: $TZ"
 
       - name: Set up Python
         uses: actions/setup-python@v2
@@ -30,3 +31,4 @@ jobs:
         run: python main.py
         env:
           SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+          TZ: 'Asia/Kolkata'
