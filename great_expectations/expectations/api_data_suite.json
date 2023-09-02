@@ -1,0 +1,32 @@
+{
+  "data_asset_type": null,
+  "expectation_suite_name": "api_data_suite",
+  "expectations": [
+    {
+      "expectation_type": "expect_table_columns_to_match_ordered_list",
+      "kwargs": {
+        "column_list": [
+          "Symbol",
+          "Name",
+          "Blockchain",
+          "Price",
+          "PriceYesterday",
+          "VolumeYesterdayUSD",
+          "Time",
+          "Source",
+          "Signature"
+        ]
+      },
+      "meta": {
+        "notes": {
+          "content": "Schema Check. **Markdown** `Supported`",
+          "format": "markdown"
+        }
+      }
+    }
+  ],
+  "ge_cloud_id": null,
+  "meta": {
+    "great_expectations_version": "0.17.12"
+  }
+}
