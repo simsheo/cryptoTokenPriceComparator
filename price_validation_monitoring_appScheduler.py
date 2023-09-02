@@ -87,7 +87,7 @@ def compare_and_highlight_breach(source_price, external_price,threshold, compart
 
 if __name__ == "__main__":
     scheduler = BlockingScheduler()
-    scheduler.add_job(main, 'interval', minutes=10)  # Schedule the function every 30 minutes
+    scheduler.add_job(main, 'interval', minutes=30)  # Schedule the function every 30 minutes
     scheduler.start()
   
 
