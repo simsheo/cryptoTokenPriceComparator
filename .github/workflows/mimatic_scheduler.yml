@@ -2,7 +2,7 @@ name: Monitoring job
 
 on:
   schedule:
-    - cron: '0-59/5 09-13 * * *'  # Runs at midnight IST and every 5 minutes thereafter
+    - cron: '0-59/5 04-13 * * *'  # Runs at midnight IST and every 5 minutes thereafter
 
 jobs:
   run_script:
