@@ -48,7 +48,7 @@ def fetch_graphql_price(url ):
             # Extract the latest price and timestamp
             latest_price = latest_entry["Value"]
             latest_timestamp = latest_entry["Time"]
-            logging.info(f"latest price : {latest_price}, latest time stamp: {latest_timestamp}")
+            logging.info(f"dia_graph_ql:fetch_graphql_price--> latest price : {latest_price}, latest time stamp: {latest_timestamp}")
             return latest_price
         else:
             return None
