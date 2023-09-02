@@ -1,8 +1,8 @@
-name: Monitoring job
+name: Price validation monitoring job
 
 on:
   schedule:
-    - cron: '0-59/5 04-13 * * *'  # Runs at midnight IST and every 5 minutes thereafter
+    - cron: '0-59/15 04-13 * * *'  # This job runs every 30mins between 04:00am and 1:00PM
 
 jobs:
   run_script:
@@ -34,7 +34,7 @@ jobs:
           pip install -r requirements.txt  # Assuming your requirements are in this file
 
       - name: Run script
-        run: python main_cron.py
+        run: python mimatic_token_monitoring.py
         env:
           SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
           TZ: 'Asia/Kolkata'
