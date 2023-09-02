@@ -32,5 +32,5 @@ jobs:
             echo "Scheduled runs completed for today"
           else
             echo "Scheduling for next day"
-            curl -X POST -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/${{ github.repository }}/actions/workflows/${{ github.workflow }}/dispatches -d '{"ref":"main_cron"}'
+            curl -X POST -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/${{ github.repository }}/actions/workflows/${{ github.workflow }}/dispatches -d '{"ref":"main"}'
           fi
