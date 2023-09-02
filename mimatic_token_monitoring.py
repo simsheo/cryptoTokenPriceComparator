@@ -1,4 +1,5 @@
 import os
+import logging
 from tabulate import tabulate
 from config import (
     COINGECO_POLYGON_URL, COINGECKO_FANTOM_URL, COINMARKETCAP_MIMATIC_URL,
@@ -33,10 +34,8 @@ def main():
         
         #Get price using graphql , this is only for demo purpose    
         dia_polygon_graphql_price = fetch_graphql_price(GRAPHQL_URL)
-
-        
+     
         if dia_polygon_price and dia_fantom_price and coingecko_polygon_price and coingecko_fantom_price and coinmarketcap_mimatic_price and dia_polygon_graphql_price:
-
             #Create list for all prices pulled and used in comparision and send it to email and slack
             source_price_list =[
                 ("Dia Polygon - API ", dia_polygon_price ), 
