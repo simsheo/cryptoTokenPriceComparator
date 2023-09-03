@@ -109,43 +109,38 @@ suite.add_expectation(expectation_configuration=expectation_configuration_4)
 context.save_expectation_suite(suite, "api_data_validation_suite")
 
 def main():
-    while True:
-        try:
-            api_url = "https://api.diadata.org/v1/assetQuotation/Fantom/0xfB98B335551a418cD0737375a2ea0ded62Ea213b"
-            response = requests.get(api_url)
-            data = response.json()
+    try:
+        api_url = "https://api.diadata.org/v1/assetQuotation/Fantom/0xfB98B335551a418cD0737375a2ea0ded62Ea213b"
+        response = requests.get(api_url)
+        data = response.json()
 
-            data_dict = {key: [value] for key, value in data.items()}
-            df = pd.DataFrame(data_dict)
-            batch_request = RuntimeBatchRequest(
-            datasource_name="api_datasource",
-            data_connector_name="default_runtime_data_connector_name",
-            data_asset_name="api_data",
-            runtime_parameters={"batch_data":df},
-            batch_identifiers={"default_identifier_name":"default_identifier"}
-            )
+        data_dict = {key: [value] for key, value in data.items()}
+        df = pd.DataFrame(data_dict)
+        batch_request = RuntimeBatchRequest(
+        datasource_name="api_datasource",
+        data_connector_name="default_runtime_data_connector_name",
+        data_asset_name="api_data",
+        runtime_parameters={"batch_data":df},
+        batch_identifiers={"default_identifier_name":"default_identifier"}
+        )
+        checkpoint_config = {
+            "name": "api_data_validation_checkpoint",
+            "config_version": 1,
+            "class_name":"SimpleCheckpoint",
+            "expectation_suite_name": "api_data_validation_suite"
+        }
+        context.add_checkpoint(**checkpoint_config)
+        results = context.run_checkpoint(
+            checkpoint_name="api_data_checkpoint",
+            validations=[
+                {"batch_request": batch_request}
+            ]
+        )
+        print(results)
+        print("Validation completed")
 
-            checkpoint_config = {
-                "name": "api_data_validation_checkpoint",
-                "config_version": 1,
-                "class_name":"SimpleCheckpoint",
-                "expectation_suite_name": "api_data_validation_suite"
-                }
-            context.add_checkpoint(**checkpoint_config)
-            results = context.run_checkpoint(
-                checkpoint_name="api_data_checkpoint",
-                validations=[
-                    {"batch_request": batch_request}
-                    ]
-                )
-            print(results)
-            print("Validation completed. Waiting for 120 seconds...")
-            time.sleep(120)  # Wait for 120 seconds before running the next validation
-
-        except Exception as e:
-            print("An error occurred:", str(e))
-            print("Waiting for 120 seconds before retrying...")
-            time.sleep(120)  # Wait for 120 seconds before retrying in case of an error
+    except Exception as e:
+        print("An error occurred:", str(e))
 
 if __name__ == "__main__":
     main()
