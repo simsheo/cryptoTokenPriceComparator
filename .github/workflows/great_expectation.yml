@@ -24,8 +24,10 @@ jobs:
       - name: Activate Virtual Environment
         run: source myenv/bin/activate  # Activate the virtual environment
 
-      - name: Install Dependencies
-        run: pip install -r requirements.txt  # Install project dependencies from requirements.txt
-
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt  # Assuming your requirements are in this file
+     
       - name: Run Great Expectations
         run: python ge_unit_data_validation.py  # Run your source code
