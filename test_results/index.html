@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Data Docs created by Great Expectations</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <title></title>
+
+    
+    
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/bootstrap-table@1.19.0/dist/extensions/filter-control/bootstrap-table-filter-control.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@forevolve/bootstrap-dark@1.1.0/dist/css/bootstrap-prefers-dark.css" />
+
+    <style>
+  
+
+body {
+  position: relative;
+}
+
+.container {
+  padding-top: 50px;
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 90px;
+  z-index: 1;
+}
+
+.ge-section {
+  clear: both;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+}
+
+.popover {
+  max-width: 100%;
+}
+
+.cooltip {
+  display: inline-block;
+  position: relative;
+  text-align: left;
+  cursor: pointer;
+}
+
+.cooltip .top {
+  min-width: 200px;
+  top: -6px;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  padding: 10px 20px;
+  color: #FFFFFF;
+  background-color: #222222;
+  font-weight: normal;
+  font-size: 13px;
+  border-radius: 8px;
+  position: absolute;
+  z-index: 99999999 !important;
+  box-sizing: border-box;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+.cooltip:hover .top {
+  display: block;
+  z-index: 99999999 !important;
+}
+
+.cooltip .top i {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -12px;
+  width: 24px;
+  height: 12px;
+  overflow: hidden;
+}
+
+.cooltip .top i::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background-color: #222222;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+}
+
+ul {
+  padding-inline-start: 20px;
+}
+
+.show-scrollbars {
+  overflow: auto;
+}
+
+td .show-scrollbars {
+  max-height: 80vh;
+}
+
+/*.show-scrollbars ul {*/
+/*  padding-bottom: 20px*/
+/*}*/
+
+.show-scrollbars::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.show-scrollbars::-webkit-scrollbar:vertical {
+  width: 11px;
+}
+
+.show-scrollbars::-webkit-scrollbar:horizontal {
+  height: 11px;
+}
+
+.show-scrollbars::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  border: 2px solid white; /* should match background, can't be transparent */
+  background-color: rgba(0, 0, 0, .5);
+}
+
+#ge-cta-footer {
+  opacity: 0.9;
+  border-left-width: 4px
+}
+
+.carousel-caption {
+    position: relative;
+    left: 0;
+    top: 0;
+}
+
+footer {
+  position: fixed;
+  border-top: 1px solid #98989861;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 32px;
+  padding: 4px;
+  font-size: 14px;
+  text-align: right;
+  width: 100%;
+  background: white;
+  z-index: 100000;
+}
+footer a {
+  padding-right: 8px;
+  color: #ff6210;
+  font-weight: 600;
+}
+
+footer a:hover {
+    color: #bc490d;
+    text-decoration: underline;
+}
+
+/* some css overrides for dark mode*/
+@media (prefers-color-scheme: dark) {
+  .table {
+    color: #f1f1f1 !important;
+    background-color: #212529;
+  }
+  .table-bordered{
+    border: #f1f1f1;
+  }
+  .table-hover tbody tr:hover {
+    color: #f1f1f1;
+    background-color: rgba(255,255,255,.075);
+  }
+  .form-control:disabled,
+  .form-control[readonly]{
+    background-color: #343a40;
+    opacity: .8;
+  }
+
+  .bg-light {
+    background: inherit !important;
+  }
+
+  .code-snippet {
+    background: #CDCDCD !important;
+  }
+
+  .alert-secondary a {
+    color: #0062cc;
+  }
+
+  .alert-secondary a:focus, .alert-secondary a:hover{
+    color: #004fa5;
+  }
+
+  .navbar-brand a {
+    background: url('https://great-expectations-web-assets.s3.us-east-2.amazonaws.com/full_logo_dark.png') 0 0 no-repeat;
+    background-size: 228.75px 50px;
+    display: inline-block
+  }
+  .navbar-brand a img {
+    visibility:hidden
+  }
+  footer {
+    border-top: 1px solid #ffffff61;
+    background: black;
+    z-index: 100000;
+  }
+  footer a {
+    color: #ff6210;
+  }
+
+  footer a:hover {
+    color: #ff6210;
+  }
+}</style>
+
+    <style>/*index page*/
+.ge-index-page-site-name-title {}
+.ge-index-page-table-container {}
+.ge-index-page-table {}
+.ge-index-page-table-profiling-links-header {}
+.ge-index-page-table-expectations-links-header {}
+.ge-index-page-table-validations-links-header {}
+.ge-index-page-table-profiling-links-list {}
+.ge-index-page-table-profiling-links-item {}
+.ge-index-page-table-expectation-suite-link {}
+.ge-index-page-table-validation-links-list {}
+.ge-index-page-table-validation-links-item {}
+
+/*breadcrumbs*/
+.ge-breadcrumbs {}
+.ge-breadcrumbs-item {}
+
+/*navigation sidebar*/
+.ge-navigation-sidebar-container {}
+.ge-navigation-sidebar-content {}
+.ge-navigation-sidebar-title {}
+.ge-navigation-sidebar-link {}</style>
+
+    
+  
+
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+<script src="https://kit.fontawesome.com/8217dffd95.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js"></script>
+<script src="https://unpkg.com/bootstrap-table@1.19.1/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    
+
+
+  
+
+<link rel="shortcut icon" href="./static/images/favicon.ico" type="image/x-icon"/>
+  </head>
+
+  <body>
+
+    
+      
+
+
+
+
+  
+
+
+  
+<style type="text/css">
+div.card-footer .container {
+    padding-top: 0;
+}
+div.walkthrough-card {
+    height: 100%;
+ }
+div.modal-body {
+    height: 700px
+}
+div.image-sizer {
+    max-height: 400px;
+    width: 100%;
+    padding: 0 40px;
+    overflow: hidden;
+    margin-bottom: 1em;
+}
+.code-snippet {
+    margin: 0 40px 1em 40px;
+    padding: 1em 40px;
+}
+code.inline-code {
+    padding: 2px 5px;
+}
+img.dev-loop {
+    max-height: 250px;
+}
+.json-key {
+    color: #333333;
+    font-weight: bold;
+}
+.json-str {
+    color: darkgreen;
+}
+.json-bool {
+    color: darkorange;
+}
+.json-number {
+    color: darkblue;
+}
+</style>
+
+<div class="modal fade ge-walkthrough-modal" tabindex="-1" role="dialog" aria-labelledby="ge-walkthrough-modal-title"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title" id="ge-walkthrough-modal-title">Great Expectations Walkthrough</h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="card walkthrough-card bg-dark text-white walkthrough-1">
+        <div class="card-header"><h4>How to work with Great Expectations</h4></div>
+            <div class="card-body">
+              <div class="image-sizer text-center">
+                  <img src="./static/images/iterative-dev-loop.png" class="img-fluid rounded-sm mx-auto dev-loop">
+              </div>
+                  <p>
+                      Welcome! Now that you have initialized your project, the best way to work with Great Expectations is in this iterative dev loop:
+                  </p>
+                <ol>
+                    <li>Let Great Expectations create a simple first draft suite, by running <code class="inline-code bg-light">great_expectations suite new</code>.</li>
+                    <li>View the suite here in Data Docs.</li>
+                    <li>Edit the suite in a Jupyter notebook by running <code class="inline-code bg-light">great_expectations suite edit</code></li>
+                    <li>Repeat Steps 2-3 until you are happy with your suite.</li>
+                    <li>Commit this suite to your source control repository.</li>
+                </ol>
+            </div>
+            <div class="card-footer walkthrough-links">
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm">
+                    &nbsp;
+                  </div>
+                  <div class="col-6 text-center text-secondary">
+                    1 of 7
+                    <div class="progress" style="height: 2px">
+                      <div class="progress-bar bg-info" role="progressbar" style="width: 16%" aria-valuenow="16" aria-valuemin="0" aria-valuemax="16"></div>
+                    </div>
+                  </div>
+                  <div class="col-sm">
+                    <a href="#" class="next-link btn btn-primary float-right" onclick="go_to_slide(2)">Next</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+
+                <div class="card walkthrough-card bg-dark text-white walkthrough-2">
+                <div class="card-header"><h4>What are Expectations?</h4></div>
+                <div class="card-body">
+                    <ul class="code-snippet bg-light text-muted rounded-sm">
+                        <li>expect_column_to_exist</li>
+                        <li>expect_table_row_count_to_be_between</li>
+                        <li>expect_column_values_to_be_unique</li>
+                        <li>expect_column_values_to_not_be_null</li>
+                        <li>expect_column_values_to_be_between</li>
+                        <li>expect_column_values_to_match_regex</li>
+                        <li>expect_column_mean_to_be_between</li>
+                        <li>expect_column_kl_divergence_to_be_less_than</li>
+                        <li>... <a href="https://greatexpectations.io/expectations">and many more</a></li>
+                    </ul>
+                  <p>An expectation is a falsifiable, verifiable statement about data.</p>
+                  <p>Expectations provide a language to talk about data characteristics and data quality - humans to humans, humans to machines and machines to machines.</p>
+                  <p>Expectations are both data tests and docs!</p>
+                </div>
+                <div class="card-footer walkthrough-links">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-sm">
+                        <a href="#" class="next-link btn btn-secondary float-left" onclick="go_to_slide(1)">Back</a>
+                      </div>
+                      <div class="col-6 text-center text-secondary">
+                        2 of 7
+                        <div class="progress" style="height: 2px">
+                          <div class="progress-bar bg-info" role="progressbar" style="width: 32%" aria-valuenow="32" aria-valuemin="0" aria-valuemax="32"></div>
+                        </div>
+                      </div>
+                      <div class="col-sm">
+                        <a href="#" class="next-link btn btn-primary float-right" onclick="go_to_slide(3)">Next</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+
+
+                <div class="card walkthrough-card bg-dark text-white walkthrough-3">
+                <div class="card-header"><h4>Expectations can be presented in a machine-friendly JSON</h4></div>
+                <div class="card-body">
+                    <p class="code-snippet bg-light text-muted rounded-sm">
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="json-key">"expectation_type"</span>: <span class="json-str">"expect_column_values_to_not_be_null",</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="json-key">"kwargs"</span>: {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="json-key">"column"</span>: <span class="json-str">"user_id"</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+}<br />
+                    </p>
+                  <p>A machine can test if a dataset conforms to the expectation.</p>
+                </div>
+                <div class="card-footer walkthrough-links">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-sm">
+                        <a href="#" class="next-link btn btn-secondary float-left" onclick="go_to_slide(2)">Back</a>
+                      </div>
+                      <div class="col-6 text-center text-secondary">
+                        3 of 7
+                        <div class="progress" style="height: 2px">
+                          <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="50"></div>
+                        </div>
+                      </div>
+                      <div class="col-sm">
+                        <a href="#" class="next-link btn btn-primary float-right" onclick="go_to_slide(4)">Next</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+
+                <div class="card walkthrough-card bg-dark text-white walkthrough-4">
+                <div class="card-header"><h4>Validation produces a validation result object</h4></div>
+                <div class="card-body">
+                     <p class="code-snippet bg-light text-muted rounded-sm">
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="json-key">"success"</span>: <span class="json-bool">false</span>,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="json-key">"result":</span> {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="json-key">"element_count"</span>: <span class="json-number">253405,</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="json-key">"unexpected_count"</span>: <span class="json-number">7602,</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="json-key">"unexpected_percent"</span>: <span class="json-number">2.999</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;},<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="json-key">"expectation_config"</span>: {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="json-key">"expectation_type"</span>: <span class="json-str">"expect_column_values_to_not_be_null"</span>,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="json-key">"kwargs"</span>: {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="json-key">"column"</span>: <span class="json-str">"user_id"</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+}<br />
+                    </p>
+                  <p>Here's an example Validation Result (not from your data) in JSON format. This object has rich context about the test failure.</p>
+                </div>
+                <div class="card-footer walkthrough-links">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-sm">
+                        <a href="#" class="next-link btn btn-secondary float-left" onclick="go_to_slide(3)">Back</a>
+                      </div>
+                      <div class="col-6 text-center text-secondary">
+                        4 of 7
+                        <div class="progress" style="height: 2px">
+                          <div class="progress-bar bg-info" role="progressbar" style="width: 68%" aria-valuenow="68" aria-valuemin="0" aria-valuemax="68"></div>
+                        </div>
+                      </div>
+                      <div class="col-sm">
+                        <a href="#" class="next-link btn btn-primary float-right" onclick="go_to_slide(5)">Next</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+
+                <div class="card walkthrough-card bg-dark text-white walkthrough-5">
+                <div class="card-header"><h4>Validation results save you time.</h4></div>
+                <div class="card-body">
+                  <div class="image-sizer text-center">
+                      <img src="./static/images/validation_failed_unexpected_values.gif" class="img-fluid rounded-sm mx-auto">
+                  </div>
+                  <p>This is an example of what a single failed Expectation looks like in Data Docs. Note the failure includes unexpected values from your data. This helps you debug pipelines faster.</p>
+                </div>
+                <div class="card-footer walkthrough-links">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-sm">
+                        <a href="#" class="next-link btn btn-secondary float-left" onclick="go_to_slide(4)">Back</a>
+                      </div>
+                      <div class="col-6 text-center text-secondary">
+                        5 of 7
+                        <div class="progress" style="height: 2px">
+                          <div class="progress-bar bg-info" role="progressbar" style="width: 84%" aria-valuenow="84" aria-valuemin="0" aria-valuemax="84"></div>
+                        </div>
+                      </div>
+                      <div class="col-sm">
+                        <a href="#" class="next-link btn btn-primary float-right" onclick="go_to_slide(6)">Next</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+
+                <div class="card walkthrough-card bg-dark text-white walkthrough-6">
+                <div class="card-header"><h4>Great Expectations provides a large library of expectations.</h4></div>
+                <div class="card-body">
+                  <div class="image-sizer text-center">
+                      <img src="./static/images/glossary_scroller.gif" class="img-fluid rounded-sm mx-auto">
+                  </div>
+                  <p><a href="https://greatexpectations.io/expectations">Nearly 50 built in expectations</a> allow you to express how you understand your data, and you can add custom
+                  expectations if you need a new one.
+                  </p>
+                </div>
+                <div class="card-footer walkthrough-links">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-sm">
+                        <a href="#" class="next-link btn btn-secondary float-left" onclick="go_to_slide(5)">Back</a>
+                      </div>
+                      <div class="col-6 text-center text-secondary">
+                        6 of 7
+                        <div class="progress" style="height: 2px">
+                          <div class="progress-bar bg-info" role="progressbar" style="width: 84%" aria-valuenow="84" aria-valuemin="0" aria-valuemax="84"></div>
+                        </div>
+                      </div>
+                      <div class="col-sm">
+                        <a href="#" class="next-link btn btn-primary float-right" onclick="go_to_slide(7)">Next</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+
+                <div class="card walkthrough-card bg-dark text-white walkthrough-7">
+                <div class="card-header"><h4>Now explore and edit the sample suite!</h4></div>
+                <div class="card-body">
+                  <p>This sample suite shows you a few examples of expectations.</p>
+                  <p>This Expectation Suite may not be a complete assessment of the quality of your data. You should review and edit the Expectations based on domain knowledge.</p>
+                  <p>When you are ready, press the <strong>How to Edit</strong> button to kick off the iterative dev loop.</p>
+                </div>
+                <div class="card-footer walkthrough-links">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-sm">
+                        <a href="#" class="next-link btn btn-secondary float-left" onclick="go_to_slide(6)">Back</a>
+                      </div>
+                      <div class="col-6 text-center text-secondary">
+                        7 of 7
+                        <div class="progress" style="height: 2px">
+                          <div class="progress-bar bg-info" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                      </div>
+                      <div class="col-sm">
+                        <button type="button" class="btn btn-primary float-right" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">Done</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/JavaScript">
+  $(".ge-walkthrough-modal").on('hide.bs.modal', function (e) {
+    try {
+      localStorage.setItem('ge-walkthrough-modal-dismissed', 'true');
+    }
+    catch (e) {
+      console.log(e);
+    }
+    go_to_slide(1);
+  })
+</script>
+
+
+<script type="text/JavaScript">
+  function go_to_slide(slide_number) {
+    hide_cards();
+    $('.walkthrough-' + slide_number).show();
+  }
+  function hide_cards() {
+    $('.walkthrough-card').hide();
+  }
+  hide_cards();
+  go_to_slide(1);
+</script>
+
+      <script>
+        try {
+          if (localStorage.getItem('ge-walkthrough-modal-dismissed') !== 'true') {
+            $(".ge-walkthrough-modal").modal();
+          }
+        }
+        catch(error) {
+          $(".ge-walkthrough-modal").modal();
+          console.log(error);
+        }
+      </script>
+    
+
+    
+
+
+  
+
+<nav class="navbar navbar-expand-md sticky-top border-bottom" style="height: 70px">
+  <div class="mr-auto">
+    <nav class="d-flex align-items-center">
+      <div class="float-left navbar-brand m-0 h-100">
+        <a href="#">
+          <img
+            class="NO-CACHE"
+            src="https://great-expectations-web-assets.s3.us-east-2.amazonaws.com/logo-long.png?d=20230903T154934.414447Z&dataContextId=071bac48-27a5-4c34-a7f4-b0c31bbcce03"
+            alt="Great Expectations"
+            style="width: auto; height: 50px"
+          />
+        </a>
+      </div>
+      
+    </nav>
+  </div>
+</nav>
+    <div class="container-fluid pt-4 pb-4 pl-5 pr-5">
+      <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-12 d-sm-block px-0">
+  <div class="mb-4">
+  
+    <div class="col-12 p-0">
+      <p>
+        Data Docs autogenerated using
+        <a href="https://greatexpectations.io">Great Expectations</a>.
+      </p>
+    </div>
+  
+</div>
+  <div class="sticky">
+    
+      <script>
+    function showAllValidations() {
+    $(".hide-succeeded-validation-target-child").parent().fadeIn();
+    $(".hide-succeeded-validation-target").fadeIn();
+    $(".hide-succeeded-validations-column-section-target-child").parent().parent().each((idx, el) => {
+      $(el).fadeIn();
+      const elId = el.id;
+      $(`a[href$=${elId}]`).fadeIn();
+    })
+  }
+
+    function hideSucceededValidations() {
+    $(".hide-succeeded-validation-target-child").parent().fadeOut();
+    $(".hide-succeeded-validation-target").fadeOut();
+    $(".hide-succeeded-validations-column-section-target-child").parent().parent().each((idx, el) => {
+      $(el).fadeOut();
+      const elId = el.id;
+      $(`a[href$=${elId}]`).fadeOut();
+    })
+  }
+</script>
+
+<div class="card mb-3">
+  <div class="card-header p-2">
+    <strong>Actions</strong>
+  </div>
+  <div class="card-body p-3">
+    
+    
+      
+
+      <div class="mb-2">
+        <div class="d-flex justify-content-center">
+          <button type="button" class="btn btn-info" data-toggle="modal" data-target=".ge-walkthrough-modal">
+            Show Walkthrough
+          </button>
+        </div>
+      </div>
+    
+  </div>
+</div>
+    
+    
+  </div>
+</div>
+        <div class="col-md-10 col-lg-10 col-xs-12 pl-md-4 pr-md-3">
+          
+            <div id="section-1" class="ge-section container-fluid mb-1 pb-1 pl-sm-3 px-0">
+    <div class="row" >
+        
+
+<div id="section-1-content-block-1" class="col-12 ge-index-page-site-name-title" >
+
+    <div id="section-1-content-block-1-header" class="alert alert-secondary" >
+        <div>
+          
+                <span >
+                    <strong >Data Docs</strong> | local_site
+                </span>
+            
+        </div>
+      
+    </div>
+
+</div>
+        
+
+<div id="section-1-content-block-2" class="col-12 ge-index-page-tabs-container" >
+
+    
+
+
+
+
+
+
+
+
+<div
+        id="section-1-content-block-2-tabs-container"
+        
+>
+  <ul class="nav nav-tabs" id=section-1-content-block-2-tabs-nav role="tablist">
+    
+      <li class="nav-item">
+        <a
+            class="nav-link active"
+            id="Validation-Results-tab"
+            data-toggle="tab"
+            href="#Validation-Results"
+            role="tab"
+            aria-selected="true"
+            aria-controls="Validation-Results">
+          Validation Results
+        </a>
+      </li>
+    
+      <li class="nav-item">
+        <a
+            class="nav-link"
+            id="Expectation-Suites-tab"
+            data-toggle="tab"
+            href="#Expectation-Suites"
+            role="tab"
+            aria-selected="false"
+            aria-controls="Expectation-Suites">
+          Expectation Suites
+        </a>
+      </li>
+    
+  </ul>
+
+  <div class="tab-content" id="section-1-content-block-2-tabs-content">
+    
+      <div
+        class="tab-pane fade show active"
+        id="Validation-Results"
+        role="tabpanel"
+        aria-labelledby="Validation-Results-tab">
+        
+
+
+
+
+
+
+  
+
+
+<div id="section-1-content-block-2-1-body-table-toolbar" class="ml-1">
+  
+    <button class="btn btn-sm btn-secondary ml-1" onclick="clearTableFilters('section-1-content-block-2-1-body-table')">Clear Filters</button>
+  
+</div>
+
+<table
+  id="section-1-content-block-2-1-body-table"
+  class="table-sm ge-index-page-validation-results-table" 
+  data-toggle="table"
+>
+</table>
+
+<script>
+  function rowStyleLinks(row, index) {
+    return {
+      css: {
+        cursor: "pointer"
+      }
+    }
+  }
+
+  function rowAttributesLinks(row, index) {
+    return {
+      "class": "clickable-row",
+      "data-href": row._table_row_link_path
+    }
+  }
+
+  function expectationSuiteNameFilterDataCollector(value, row, formattedValue) {
+    return row._expectation_suite_name_sort;
+  }
+
+  function validationSuccessFilterDataCollector(value, row, formattedValue) {
+    return row._validation_success_text;
+  }
+
+    function getFormattedDateWithoutTime  (d) {
+
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+        if (month.length < 2)
+            month = '0' + month;
+        if (day.length < 2)
+            day = '0' + day;
+
+        return [year, month, day].join('-');
+    }
+
+  function formatRuntimeDateForFilter(text, value, field, data){
+    const cellValueAsDateObj = new Date(value);
+    return text == getFormattedDateWithoutTime(cellValueAsDateObj);
+  }
+
+  function clearTableFilters(tableId) {
+    $(`#${tableId}`).bootstrapTable('clearFilterControl');
+    $(`#${tableId}`).bootstrapTable('resetSearch');
+  }
+</script>
+
+<script>
+  $('#section-1-content-block-2-1-body-table').bootstrapTable(
+    Object.assign(
+      {
+        columns: [{'field': 'validation_success', 'title': 'Status', 'sortable': 'true', 'align': 'center', 'filterControl': 'select', 'filterDataCollector': 'validationSuccessFilterDataCollector'}, {'field': 'run_time', 'title': 'Run Time', 'sortName': '_run_time_sort', 'sortable': 'true', 'filterControl': 'datepicker', 'filterCustomSearch': 'formatRuntimeDateForFilter', 'filterDatepickerOptions': {'clearBtn': 'true', 'autoclose': 'true', 'format': 'yyyy-mm-dd', 'todayHighlight': 'true'}}, {'field': 'run_name', 'title': 'Run Name', 'sortable': 'true', 'filterControl': 'input'}, {'field': 'asset_name', 'title': 'Asset Name', 'sortable': 'true', 'filterControl': 'select'}, {'field': 'batch_identifier', 'title': 'Batch ID', 'sortName': '_batch_identifier_sort', 'sortable': 'true', 'filterControl': 'input'}, {'field': 'expectation_suite_name', 'title': 'Expectation Suite', 'sortName': '_expectation_suite_name_sort', 'sortable': 'true', 'filterControl': 'select', 'filterDataCollector': 'expectationSuiteNameFilterDataCollector'}],
+        data: [{'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 21:19:32 IST', '_run_time_sort': 1693756172.776976, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T154932.776976Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 21:17:30 IST', '_run_time_sort': 1693756050.079372, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T154730.079372Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 21:15:28 IST', '_run_time_sort': 1693755928.564564, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T154528.564564Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 21:13:26 IST', '_run_time_sort': 1693755806.969773, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T154326.969773Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 21:11:25 IST', '_run_time_sort': 1693755685.50454, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T154125.504540Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 21:09:24 IST', '_run_time_sort': 1693755564.032903, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T153924.032903Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 21:07:22 IST', '_run_time_sort': 1693755442.606868, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T153722.606868Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 21:05:21 IST', '_run_time_sort': 1693755321.069855, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T153521.069855Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 21:03:19 IST', '_run_time_sort': 1693755199.597845, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T153319.597845Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 21:01:18 IST', '_run_time_sort': 1693755078.141822, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T153118.141822Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 20:59:16 IST', '_run_time_sort': 1693754956.714972, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T152916.714972Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 20:57:15 IST', '_run_time_sort': 1693754835.087369, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T152715.087369Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 20:55:13 IST', '_run_time_sort': 1693754713.716226, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T152513.716226Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 20:53:12 IST', '_run_time_sort': 1693754592.179061, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T152312.179061Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 20:51:10 IST', '_run_time_sort': 1693754470.784384, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T152110.784384Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 20:49:09 IST', '_run_time_sort': 1693754349.356232, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T151909.356232Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 20:47:07 IST', '_run_time_sort': 1693754227.947346, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T151707.947346Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 20:45:06 IST', '_run_time_sort': 1693754106.356979, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T151506.356979Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 20:43:03 IST', '_run_time_sort': 1693753983.849545, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T151303.849545Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 20:41:01 IST', '_run_time_sort': 1693753861.244769, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T151101.244769Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 20:38:58 IST', '_run_time_sort': 1693753738.50108, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T150858.501080Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 20:36:55 IST', '_run_time_sort': 1693753615.937115, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T150655.937115Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 20:34:53 IST', '_run_time_sort': 1693753493.37234, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T150453.372340Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 20:32:50 IST', '_run_time_sort': 1693753370.809055, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T150250.809055Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 20:30:47 IST', '_run_time_sort': 1693753247.698419, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T150047.698419Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 20:28:44 IST', '_run_time_sort': 1693753124.922693, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T145844.922693Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 20:26:42 IST', '_run_time_sort': 1693753002.468205, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T145642.468205Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 20:24:40 IST', '_run_time_sort': 1693752880.027658, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T145440.027658Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 20:22:38 IST', '_run_time_sort': 1693752758.549982, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T145238.549982Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 20:20:37 IST', '_run_time_sort': 1693752637.113356, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T145037.113356Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 20:18:35 IST', '_run_time_sort': 1693752515.72001, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T144835.720010Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 20:18:18 IST', '_run_time_sort': 1693752498.411436, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T144818.411436Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 20:16:33 IST', '_run_time_sort': 1693752393.222467, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T144633.222467Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 20:14:30 IST', '_run_time_sort': 1693752270.517325, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T144430.517325Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 20:12:28 IST', '_run_time_sort': 1693752148.372444, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T144228.372444Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 20:10:26 IST', '_run_time_sort': 1693752026.283858, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T144026.283858Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 20:08:24 IST', '_run_time_sort': 1693751904.861015, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T143824.861015Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 20:06:23 IST', '_run_time_sort': 1693751783.419626, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T143623.419626Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 20:04:21 IST', '_run_time_sort': 1693751661.092337, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T143421.092337Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 19:51:55 IST', '_run_time_sort': 1693750915.548999, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T142155.548999Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 19:49:54 IST', '_run_time_sort': 1693750794.156486, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T141954.156486Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 19:47:52 IST', '_run_time_sort': 1693750672.780502, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T141752.780502Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 19:45:51 IST', '_run_time_sort': 1693750551.404911, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T141551.404911Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 19:43:50 IST', '_run_time_sort': 1693750430.012145, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T141350.012145Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 19:41:48 IST', '_run_time_sort': 1693750308.669793, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T141148.669793Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 19:39:47 IST', '_run_time_sort': 1693750187.260539, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T140947.260539Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 19:37:45 IST', '_run_time_sort': 1693750065.884651, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T140745.884651Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 19:35:44 IST', '_run_time_sort': 1693749944.525545, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T140544.525545Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 19:33:43 IST', '_run_time_sort': 1693749823.139164, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T140343.139164Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 19:31:41 IST', '_run_time_sort': 1693749701.790496, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T140141.790496Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 19:29:40 IST', '_run_time_sort': 1693749580.447897, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T135940.447897Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 19:27:39 IST', '_run_time_sort': 1693749459.088487, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T135739.088487Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 19:25:37 IST', '_run_time_sort': 1693749337.714966, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T135537.714966Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 19:23:36 IST', '_run_time_sort': 1693749216.353915, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T135336.353915Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 19:21:34 IST', '_run_time_sort': 1693749094.944703, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T135134.944703Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 19:19:33 IST', '_run_time_sort': 1693748973.601995, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T134933.601995Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 19:17:32 IST', '_run_time_sort': 1693748852.292862, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T134732.292862Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 19:15:30 IST', '_run_time_sort': 1693748730.866937, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T134530.866937Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 19:13:29 IST', '_run_time_sort': 1693748609.539944, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T134329.539944Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 19:11:28 IST', '_run_time_sort': 1693748488.181799, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T134128.181799Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 19:09:26 IST', '_run_time_sort': 1693748366.856023, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T133926.856023Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 19:07:25 IST', '_run_time_sort': 1693748245.516177, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T133725.516177Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 19:05:24 IST', '_run_time_sort': 1693748124.204204, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T133524.204204Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 19:03:22 IST', '_run_time_sort': 1693748002.879343, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T133322.879343Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 19:01:21 IST', '_run_time_sort': 1693747881.569514, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T133121.569514Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 18:59:20 IST', '_run_time_sort': 1693747760.243338, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T132920.243338Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 18:57:18 IST', '_run_time_sort': 1693747638.934401, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T132718.934401Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 18:55:17 IST', '_run_time_sort': 1693747517.641657, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T132517.641657Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 18:53:16 IST', '_run_time_sort': 1693747396.348889, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T132316.348889Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 18:51:15 IST', '_run_time_sort': 1693747275.0567, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T132115.056700Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 18:49:13 IST', '_run_time_sort': 1693747153.680779, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T131913.680779Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 18:47:12 IST', '_run_time_sort': 1693747032.388068, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T131712.388068Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 18:45:11 IST', '_run_time_sort': 1693746911.129011, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T131511.129011Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 18:43:09 IST', '_run_time_sort': 1693746789.853173, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T131309.853173Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 18:41:08 IST', '_run_time_sort': 1693746668.543923, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T131108.543923Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 18:39:07 IST', '_run_time_sort': 1693746547.267902, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T130907.267902Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 18:37:05 IST', '_run_time_sort': 1693746425.975365, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T130705.975365Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 18:35:04 IST', '_run_time_sort': 1693746304.716151, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T130504.716151Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 18:33:03 IST', '_run_time_sort': 1693746183.457012, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T130303.457012Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 18:31:02 IST', '_run_time_sort': 1693746062.181512, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T130102.181512Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 18:29:00 IST', '_run_time_sort': 1693745940.873306, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T125900.873306Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 18:26:59 IST', '_run_time_sort': 1693745819.611909, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T125659.611909Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 18:24:58 IST', '_run_time_sort': 1693745698.337184, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T125458.337184Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 18:22:57 IST', '_run_time_sort': 1693745577.027615, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T125257.027615Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 18:20:55 IST', '_run_time_sort': 1693745455.752658, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T125055.752658Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 18:18:54 IST', '_run_time_sort': 1693745334.542756, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T124854.542756Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 18:16:53 IST', '_run_time_sort': 1693745213.233681, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T124653.233681Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 18:14:52 IST', '_run_time_sort': 1693745092.007845, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T124452.007845Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 18:12:50 IST', '_run_time_sort': 1693744970.782058, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T124250.782058Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 18:10:49 IST', '_run_time_sort': 1693744849.555934, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T124049.555934Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 18:08:48 IST', '_run_time_sort': 1693744728.316495, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T123848.316495Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 18:06:47 IST', '_run_time_sort': 1693744607.104229, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T123647.104229Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 18:04:45 IST', '_run_time_sort': 1693744485.911897, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T123445.911897Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 18:02:44 IST', '_run_time_sort': 1693744364.669332, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T123244.669332Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 18:00:43 IST', '_run_time_sort': 1693744243.1102, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T123043.110200Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 17:58:41 IST', '_run_time_sort': 1693744121.801465, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T122841.801465Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 17:56:40 IST', '_run_time_sort': 1693744000.591393, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T122640.591393Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 17:54:39 IST', '_run_time_sort': 1693743879.400041, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T122439.400041Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 17:52:38 IST', '_run_time_sort': 1693743758.206992, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T122238.206992Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 17:50:36 IST', '_run_time_sort': 1693743636.988784, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T122036.988784Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 17:48:35 IST', '_run_time_sort': 1693743515.81778, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T121835.817780Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 17:46:34 IST', '_run_time_sort': 1693743394.644583, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T121634.644583Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 17:44:33 IST', '_run_time_sort': 1693743273.472265, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T121433.472265Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 17:42:32 IST', '_run_time_sort': 1693743152.261953, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T121232.261953Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 17:40:31 IST', '_run_time_sort': 1693743031.102495, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T121031.102495Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}, {'validation_success': '\n                <span class="ge-index-page-table-validation-links-item" >\n                    <i class="fas fa-check-circle text-success ge-success-icon" ></i>\n                </span>\n            ', 'run_time': '2023-09-03 17:38:28 IST', '_run_time_sort': 1693742908.583783, 'run_name': '__none__', 'batch_identifier': '\n                <span class="m-0 p-0 cooltip" >\n                    91a74466103385a366522cffffacb049\n                    <span class=top>\n                        Batch Spec:\n\n{\n  "batch_data": "PandasDataFrame",\n  "data_asset_name": "api_data"\n}\n                    </span>\n                </span>\n            ', '_batch_identifier_sort': '91a74466103385a366522cffffacb049', 'expectation_suite_name': '\n                <a class="ge-index-page-table-expectation-suite-link" href="expectations\\api_data_validation_suite.html" style="word-break:break-all;" >\n                    api_data_validation_suite\n                </a>\n            ', '_expectation_suite_name_sort': 'api_data_validation_suite', '_table_row_link_path': 'validations%5Capi_data_validation_suite%5C__none__%5C20230903T120828.583783Z%5C91a74466103385a366522cffffacb049.html', '_validation_success_text': 'Success', 'asset_name': 'api_data'}],
+        toolbar: '#section-1-content-block-2-1-body-table-toolbar'
+      },
+      {'search': 'true', 'trimOnSearch': 'false', 'visibleSearch': 'true', 'rowStyle': 'rowStyleLinks', 'rowAttributes': 'rowAttributesLinks', 'sortName': 'run_time', 'sortOrder': 'desc', 'pagination': 'true', 'filterControl': 'true', 'iconSize': 'sm', 'toolbarAlign': 'right', 'showSearchClearButton': 'true'}
+    )
+  );
+
+  
+
+  
+    $(document).ready(function() {
+      $("#section-1-content-block-2-1-body-table").on('click-row.bs.table', function(e, row, $element) {
+          window.location = $element.data("href");
+        })
+      }
+    );
+  
+</script>
+      </div>
+    
+      <div
+        class="tab-pane fade"
+        id="Expectation-Suites"
+        role="tabpanel"
+        aria-labelledby="Expectation-Suites-tab">
+        
+
+
+
+
+
+
+  
+
+
+<div id="section-1-content-block-2-2-body-table-toolbar" class="ml-1">
+  
+    <button class="btn btn-sm btn-secondary ml-1" onclick="clearTableFilters('section-1-content-block-2-2-body-table')">Clear Filters</button>
+  
+</div>
+
+<table
+  id="section-1-content-block-2-2-body-table"
+  class="table-sm ge-index-page-expectation_suites-table" 
+  data-toggle="table"
+>
+</table>
+
+<script>
+  function rowStyleLinks(row, index) {
+    return {
+      css: {
+        cursor: "pointer"
+      }
+    }
+  }
+
+  function rowAttributesLinks(row, index) {
+    return {
+      "class": "clickable-row",
+      "data-href": row._table_row_link_path
+    }
+  }
+
+  function expectationSuiteNameFilterDataCollector(value, row, formattedValue) {
+    return row._expectation_suite_name_sort;
+  }
+
+  function validationSuccessFilterDataCollector(value, row, formattedValue) {
+    return row._validation_success_text;
+  }
+
+    function getFormattedDateWithoutTime  (d) {
+
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+        if (month.length < 2)
+            month = '0' + month;
+        if (day.length < 2)
+            day = '0' + day;
+
+        return [year, month, day].join('-');
+    }
+
+  function formatRuntimeDateForFilter(text, value, field, data){
+    const cellValueAsDateObj = new Date(value);
+    return text == getFormattedDateWithoutTime(cellValueAsDateObj);
+  }
+
+  function clearTableFilters(tableId) {
+    $(`#${tableId}`).bootstrapTable('clearFilterControl');
+    $(`#${tableId}`).bootstrapTable('resetSearch');
+  }
+</script>
+
+<script>
+  $('#section-1-content-block-2-2-body-table').bootstrapTable(
+    Object.assign(
+      {
+        columns: [{'field': 'expectation_suite_name', 'title': 'Expectation Suites', 'sortable': 'true'}],
+        data: [{'expectation_suite_name': 'api_data_validation_suite', '_table_row_link_path': 'expectations%5Capi_data_validation_suite.html'}],
+        toolbar: '#section-1-content-block-2-2-body-table-toolbar'
+      },
+      {'search': 'true', 'trimOnSearch': 'false', 'visibleSearch': 'true', 'rowStyle': 'rowStyleLinks', 'rowAttributes': 'rowAttributesLinks', 'sortName': 'expectation_suite_name', 'sortOrder': 'asc', 'pagination': 'true', 'iconSize': 'sm', 'toolbarAlign': 'right'}
+    )
+  );
+
+  
+
+  
+    $(document).ready(function() {
+      $("#section-1-content-block-2-2-body-table").on('click-row.bs.table', function(e, row, $element) {
+          window.location = $element.data("href");
+        })
+      }
+    );
+  
+</script>
+      </div>
+    
+  </div>
+</div>
+
+</div>
+        
+    </div>
+</div>
+          
+        </div>
+      </div>
+    </div>
+    
+<footer>
+  <p>Stay current on everything GX with our newsletter <a href="https://greatexpectations.io/newsletter?utm_source=datadocs&utm_medium=product&utm_campaign=newsletter&utm_content=form">Subscribe</a></p>
+</footer>
+
+    
+      <footer class="border border-info alert alert-info fixed-bottom alert-dismissible fade show m-0 rounded-0 invisible" id="ge-cta-footer" role="alert" >
+  <h5 class="alert-heading text-center">
+    
+                <span class="cooltip" >
+                    <i class="m-1 fas fa-question-circle" ></i>
+                    <span class=top>
+                        To disable this footer, set the show_how_to_buttons flag in your project's data_docs_sites config to false.
+                    </span>
+                </span>
+            
+    To continue exploring Great Expectations check out one of these tutorials...
+  </h5>
+  <div class="d-flex justify-content-center flex-sm-row flex-column">
+    
+      <a href="https://docs.greatexpectations.io/docs/guides/expectations/how_to_create_and_edit_expectations_with_instant_feedback_from_a_sample_batch_of_data" class="btn btn-primary m-2" rel="noopener noreferrer" target="_blank">How to Create Expectations</a>
+    
+      <a href="https://docs.greatexpectations.io/docs/guides/validation/checkpoints/how_to_create_a_new_checkpoint" class="btn btn-primary m-2" rel="noopener noreferrer" target="_blank">How to Validate Data</a>
+    
+      <a href="https://docs.greatexpectations.io/docs/guides/setup/configuring_data_docs/how_to_host_and_share_data_docs_on_a_filesystem" class="btn btn-primary m-2" rel="noopener noreferrer" target="_blank">How to Set Up a Team Site</a>
+    
+  </div>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</footer>
+<script>
+  if (sessionStorage.getItem("showCta") !== "false") {
+    $('#ge-cta-footer').removeClass("invisible")
+  }
+  $('#ge-cta-footer').on('closed.bs.alert', function () {
+    sessionStorage.setItem("showCta", false)
+  })
+</script>
+    
+  </body>
+</html>
