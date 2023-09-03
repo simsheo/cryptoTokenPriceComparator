@@ -24,15 +24,7 @@ d) expectations can be easily defined for the data quality for the other fields 
 **Reason for choosing Solution-A:** Great-Expectations (GE) is a very popular data quality validation tool, this is the one of the first tool that introduced assertion-on-data similar to asserting-code done in popular unit and functional testing framework. Most of the functionalities in GE are open-source and users can use pre-existing expectations or build their own custom expectations and assert data at any stage (inception or computed). The main programming language supported by GE is python which is simple to use. 
 
 **Solution-A Structure:** To keep it simple, I have kept API end-point and expectations in the main script (these can be separated in different modules to make the code modular). 
-
-To run this script:
-
-1. Clone this GitHub Repo to your local directory
-2. If not already installed, Install Python version > 3.8
-3. Create a virtual env using this python command: python -m venv c:\path\to\myenv
-4. Activate above virtual env: \path\to\myenv\Scripts\activate
-5. Install dependencies using this command (requirements.txt file below has complete dependencies for this project): pip install -r /path/to/requirements.txt requirements.txt
-6. Run this command to execute source code: python src/api_data_quality_validation.py
+This runs automtaically as part of github workflow -> great_expectation.yml(  whenever a commit occurs )
 
 **Solution-B:** Built a Python script that does these tasks:
 
