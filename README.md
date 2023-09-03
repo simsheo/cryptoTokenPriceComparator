@@ -26,6 +26,12 @@ d) expectations can be easily defined for the data quality for the other fields 
 **Solution-A Structure:** To keep it simple, I have kept API end-point and expectations in the main script (these can be separated in different modules to make the code modular). 
 This runs automatically as part of github workflow -> great_expectation.yml(  whenever a commit occurs )
 
+Snapshot for report produced by running great expectation -
+![image](https://github.com/simsheo/cryptoTokenPriceComparator/assets/91950874/b33828a4-031b-45c7-ba02-3dc22177cbbb)
+
+![image](https://github.com/simsheo/cryptoTokenPriceComparator/assets/91950874/a04d5621-40df-43ee-ba02-8977e6d156ee)
+
+
 **Solution-B:** Built a Python script that does these tasks:
 
 a) reads price data from DIA-Polygon, DIA-Fantom, CoinGecko and CoinMarketCap and compare the prices 
