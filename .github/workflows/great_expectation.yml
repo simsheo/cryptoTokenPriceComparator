@@ -1,0 +1,31 @@
+name: Great Expectations Workflow
+
+on:
+  push:
+    branches:
+      - main  # Run the workflow when pushing to the main branch
+
+jobs:
+  run_great_expectations:
+    runs-on: ubuntu-latest  # Use an Ubuntu runner
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2  # Clone the GitHub repo to the runner
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x  # Ensure Python 3.x is installed
+
+      - name: Create Virtual Environment
+        run: python -m venv myenv  # Create a virtual environment in the current directory
+
+      - name: Activate Virtual Environment
+        run: source myenv/bin/activate  # Activate the virtual environment
+
+      - name: Install Dependencies
+        run: pip install -r /path/to/requirements.txt  # Install project dependencies from requirements.txt
+
+      - name: Run Great Expectations
+        run: python src/api_data_quality_validation.py  # Run your source code
