@@ -51,9 +51,13 @@ b) Used CoinGecko and CoinMarketCap as external price sources to use as baseline
 c) Also, used API for getting price from CoinGecko and for CoinMarketCap scraped the price from the website as typically on day to day basis, not every source offers APIs to pull data and wanted to play around with scraping for this task
 
 **Solution-B Structure:** The code for implementaion is sitting in different packages/folders. 
+
 a) All API endpoints are in **api** folder, graphql implementation as another solution to get DIA price is in subfolder of **api->graphql**
+
 b) Code which gets aggregated price from coinmarketcap using scraping is sitting in **api->price_scraper**
+
 c) **config** contains files to have all url's and token address at one place , so the code is easy to maintain 
+
 d) **utils** has code for email, slack integration and price comparision
 
 The code is running via github workflow -> price_validation_monitoring.yml
