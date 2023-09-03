@@ -2,7 +2,7 @@ name: Price validation monitoring job
 
 on:
   schedule:
-    - cron: '0-59/15 04-13 * * *'  # This job runs every 15mins between 04:00am and 1:00PM
+    - cron: '0-59/30 11-13 * * *'  # This job runs every 30mins between 11:00am and 1:00PM
 
 jobs:
   run_script:
