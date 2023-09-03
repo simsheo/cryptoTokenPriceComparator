@@ -27,10 +27,12 @@ d) expectations can be easily defined for the data quality for the other fields 
 This runs automatically as part of github workflow -> great_expectation.yml(  whenever a commit occurs )
 
 Snapshot for report produced by running great expectation -
-![image](https://github.com/simsheo/cryptoTokenPriceComparator/assets/91950874/b33828a4-031b-45c7-ba02-3dc22177cbbb)
 
+Dashboard to show all reports -
 ![image](https://github.com/simsheo/cryptoTokenPriceComparator/assets/91950874/a04d5621-40df-43ee-ba02-8977e6d156ee)
 
+Individual reports which highlights what's been run and what's failed -
+![image](https://github.com/simsheo/cryptoTokenPriceComparator/assets/91950874/b33828a4-031b-45c7-ba02-3dc22177cbbb)
 
 **Solution-B:** Built a Python script that does these tasks:
 
