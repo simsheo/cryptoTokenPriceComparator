@@ -14,13 +14,13 @@ Establish a system to validate the authenticity of the MiMatic market price and 
 
        1. Great Expectations-based framework is used for data validation.
        2. Data is retrieved from DIA API endpoints.
-       3. Expectations are defined for data quality, e.g., mandatory feilds ,price range for MiMatic, column orders and expected values
+       3. Expectations are defined for data quality, e.g. mandatory fields ,price range for MiMatic,column orders/expected values
        4. If data does not meet expectations, it's reported as a failure.
        5. Great Expectations is chosen for its powerful data quality validation capabilities.
 
 **Solution-C:CRON job for real-time monitoring system to verify accuracy on an ongoing basis**
 
-      1. The cron scheduler is used to run the job between 11:00 AM and 1:00 PM every 30mins, but the frequency and timing can be adjusted.
+      1. The cron scheduler runs the job between 11:00 AM and 1:00 PM every 30mins, frequency and timing can be adjusted.
       2. When the job runs, it sends all fetched prices to Slack and email.
       3. If the price deviation exceeds the defined threshold, a breach report is sent.
       4. Separate Slack channels for price reports and threshold breach reports are recommended.
