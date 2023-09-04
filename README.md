@@ -27,14 +27,14 @@ Establish a system to validate the authenticity of the MiMatic market price and 
       
 **Project Structure**
 
-       1. great_expectations: Contains code for Solution-B, utilizing Great Expectations.
-       2. api: get prices from DIA and coingecko using API endpoints.
+       1. a) api: get prices from DIA and coingecko using API endpoints.
               #API aren't always available to get price, so wanted to demonstrate how graphql and scraping could be used too
-              api/graphql: get price from DIA using graphql.
-              api/price_scraper:get price from coinmarketcap using data scraping. 
-       3.config: Stores configuration files for URLs and token addresses.
-       4.utils: Contains code for email, Slack integration, and price comparison.
-       5.github workflows: Configuration files for GitHub Actions.
+              a.i)  api/graphql: get price from DIA using graphql.
+              a.ii) api/price_scraper:get price from coinmarketcap using data scraping. 
+          b) config: Stores configuration files for URLs and token addresses.
+          c) utils: Contains code for email, Slack integration, and price comparison.
+          d) github workflows: Configuration files for GitHub Actions.
+       2. great_expectations: Contains code for Solution-B, utilizing Great Expectations.
 
 **Running the Project**
 
