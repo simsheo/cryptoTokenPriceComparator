@@ -27,27 +27,31 @@ Establish a system to validate the authenticity of the MiMatic market price and 
       
 **Project Structure**
 
-       great_expectations: Contains code for Solution-A, utilizing Great Expectations.
-       api: Houses API endpoint implementations, including GraphQL and scraping for price data.
-       config: Stores configuration files for URLs and token addresses.
-       utils: Contains code for email, Slack integration, and price comparison.
-       github workflows: Configuration files for GitHub Actions.
+       1. great_expectations: Contains code for Solution-B, utilizing Great Expectations.
+       2. api: get prices from DIA and coingecko using API endpoints.
+              #API aren't always available to get price, so wanted to demonstrate how graphql and scraping could be used too
+              api/graphql: get price from DIA using graphql.
+              api/price_scraper:get price from coinmarketcap using data scraping. 
+       3.config: Stores configuration files for URLs and token addresses.
+       4.utils: Contains code for email, Slack integration, and price comparison.
+       5.github workflows: Configuration files for GitHub Actions.
 
 **Running the Project**
 
+       GitHub Secrets-Add/Setup GitHub secrets for SLACK_TOKEN:for slack integration(sending messages on slack).
        GitHub Actions workflows (great_expectation.yml and price_validation_monitoring.yml) automate the project.
-       Adjust scheduling parameters and thresholds as needed.
+       Adjust scheduling parameters in price_validation_monitoring.yml as needed.
 
-**Running the Project locally**
+**Getting Started- Local Setup**
 
        Clone the repository: git clone https://github.com/simsheo/cryptoTokenPriceComparator.git
-       cd cryptoTokenPriceComparator
-       pip install -r requirements.txt
-       run code using : python mimatic_token_monitoring.py
-       run great expectation : python ge_unit_data_validation
+       1. cd cryptoTokenPriceComparator
+       2. pip install -r requirements.txt
+       3. run code using : python mimatic_token_monitoring.py
+       4. run great expectation : python ge_unit_data_validation
              
 
-**Screenshots**
+**Reports from different solutions:**
 
 Great expectation Reports: 
 ![image](https://github.com/simsheo/cryptoTokenPriceComparator/assets/91950874/a04d5621-40df-43ee-ba02-8977e6d156ee)
